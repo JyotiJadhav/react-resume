@@ -1,0 +1,136 @@
+/* Updated Gradient Animation */
+@keyframes creativeGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .bg-animated-gradient {
+    background: linear-gradient(270deg, #1d3557, #457b9d, #a8dadc, #f1faee);
+    background-size: 400% 400%;
+    animation: creativeGradient 12s ease infinite;
+  }
+  
+  /* Fullscreen Particle Effect */
+  canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .perspective {
+    perspective: 1000px; /* Enables 3D effect */
+  }
+  
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden; /* Hides the back side when facing away */
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg); /* Rotate the back side */
+  }
+  
+  .group:hover .group-hover\:rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  .relative {
+    position: relative;
+  }
+  
+  .absolute {
+    position: absolute;
+  }
+  
+  .inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .perspective {
+    perspective: 1000px; /* Enables 3D effect */
+  }
+  
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d; /* Ensures child elements maintain 3D space */
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden; /* Hides the back side when facing away */
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg); /* Rotate the back side */
+  }
+  
+  .group:hover .group-hover\:rotate-y-180 {
+    transform: rotateY(180deg); /* Trigger rotation on hover */
+  }
+  
+  .relative {
+    position: relative;
+  }
+  
+  .absolute {
+    position: absolute;
+  }
+  
+  .inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-from), var(--tw-gradient-to));
+  }
+
+  @keyframes spin-slow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 5s linear infinite;
+  }
+  .relative .w-1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+ 
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .timeline-item {
+    background: #6a11cb;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
