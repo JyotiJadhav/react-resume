@@ -93,9 +93,44 @@ export const projects = [
       "Developed a robust Core Banking Software (CBS) using C#, Rest APIs, and MySQL, to consolidate and streamline diverse banking operations onto a unified platform. Key functionalities of the CBS encompass facilitating loan creation and servicing, account opening, cash deposits and withdrawals processing, interest calculation, customer account management, and establishing criteria for minimum balances, interest rates, and withdrawal limits. Additionally, played a pivotal role in defining and implementing interest rates within the system.",
   },
 ];
+export const casestudies = [
+  {
+    title: "E-commerce Platform",
+    description: "Built with React and Node.js for scalable shopping solutions.",
+    caseStudyLink: "/case-studies/ecommerce", // Add detailed case study links
+  },
+  {
+    title: "Portfolio Website",
+    description: "A modern React-based portfolio site.",
+    caseStudyLink: "/case-studies/portfolio",
+  },
+];
 
+export const blogs = [
+  {
+    title: "5 Tips for Effective Web Development",
+    summary: "Discover best practices for creating scalable and maintainable websites.",
+    link: "https://example.com/blog/web-development-tips",
+  },
+  {
+    title: "React vs. Angular: Which One to Choose?",
+    summary: "A comprehensive comparison of two popular frontend frameworks.",
+    link: "https://example.com/blog/react-vs-angular",
+  },
+];
 
-
+export const testimonials = [
+  {
+    name: "John Doe",
+    role: "CEO, TechCorp",
+    message: "Working with Jyoti was a fantastic experience. Her technical expertise is unparalleled.",
+  },
+  {
+    name: "Jane Smith",
+    role: "Product Manager, Innovate Solutions",
+    message: "Jyoti's ability to solve complex problems is truly impressive.",
+  },
+];
 
   export const skills = {
     Frameworks: [".NET", ".NET Core", "ASP.NET MVC", "FastAPI (Beginner)", "MSTest"],

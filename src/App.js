@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Parallax } from "react-parallax";
 import "aos/dist/aos.css";
 import AOS from "aos";
-import { skills, experiences, projects, honours, education, certifications, languages } from "./data";
+import { skills, experiences, projects, honours, education, certifications, languages, casestudies , blogs, testimonials} from "./data";
 import "./App.css";
 import img1 from "./jyoti.JPG";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
 import { askOpenAI } from "./openaiHelper"; // OpenAI helper function
@@ -121,6 +124,11 @@ const Chatbot = () => {
 };
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -560,6 +568,114 @@ const App = () => {
           </div>
         </div>
       </section>
+      {/* Hobbies/Passions Section */}
+<section id="hobbies" className="py-16 bg-gradient-to-r from-blue-50 to-gray-100">
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
+      Hobbies & Passions
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Hobby: Reading */}
+      <div className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+        <i className="fas fa-book text-4xl text-blue-500 mb-4"></i>
+        <h3 className="text-xl font-bold text-gray-700">Reading</h3>
+        <p className="text-gray-500 mt-2 text-center">
+          Immersing myself in novels, articles, and anything that broadens my perspective.
+        </p>
+      </div>
+      {/* Hobby: Writing */}
+      <div className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+        <i className="fas fa-pen-nib text-4xl text-green-500 mb-4"></i>
+        <h3 className="text-xl font-bold text-gray-700">Writing</h3>
+        <p className="text-gray-500 mt-2 text-center">
+          Crafting ideas and stories to express creativity and connect with others.
+        </p>
+      </div>
+      {/* Hobby: Painting */}
+      <div className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+        <i className="fas fa-paint-brush text-4xl text-red-500 mb-4"></i>
+        <h3 className="text-xl font-bold text-gray-700">Painting</h3>
+        <p className="text-gray-500 mt-2 text-center">
+          Expressing my creativity through vibrant colors and imaginative artwork.
+        </p>
+      </div>
+      {/* Hobby: Learning New Technologies */}
+      <div className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+        <i className="fas fa-laptop-code text-4xl text-purple-500 mb-4"></i>
+        <h3 className="text-xl font-bold text-gray-700">Learning New Technologies</h3>
+        <p className="text-gray-500 mt-2 text-center">
+          Staying updated with the latest innovations and trends in the tech world.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="case-studies" className="py-16 bg-gradient-to-r from-gray-100 to-gray-200">
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
+      Case Studies
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {casestudies.map((project, idx) => (
+        <div
+          key={idx}
+          className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col"
+        >
+          <h3 className="text-xl font-bold text-purple-600">{project.title}</h3>
+          <p className="text-gray-500 mt-2">{project.description}</p>
+          <a
+            href={project.caseStudyLink} // Link to detailed case study
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-auto text-cyan-500 hover:underline"
+          >
+            Read More
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section id="blog" className="py-16 bg-gradient-to-r from-blue-50 to-gray-100">
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
+      Blog
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {blogs.map((blog, idx) => (
+        <div key={idx} className="bg-white shadow-lg rounded-lg p-6">
+          <h3 className="text-xl font-bold text-gray-700">{blog.title}</h3>
+          <p className="text-gray-500 mt-2">{blog.summary}</p>
+          <a
+            href={blog.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-500 hover:underline mt-4 block"
+          >
+            Read More
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<section id="testimonials" className="py-16 bg-gradient-to-r from-gray-50 to-gray-100">
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
+      Testimonials
+    </h2>
+    <Slider dots={true} infinite={true} speed={500} slidesToShow={1} slidesToScroll={1}>
+      {testimonials.map((testimonial, idx) => (
+        <div key={idx} className="bg-white shadow-lg rounded-lg p-8 text-center">
+          <p className="text-lg italic text-gray-700">"{testimonial.message}"</p>
+          <h3 className="text-xl font-bold text-gray-800 mt-4">{testimonial.name}</h3>
+          <p className="text-sm text-gray-500">{testimonial.role}</p>
+        </div>
+      ))}
+    </Slider>
+  </div>
+</section>
       <Chatbot />
 
     </div>

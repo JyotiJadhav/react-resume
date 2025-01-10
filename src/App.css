@@ -133,4 +133,25 @@
     width: 80%;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
+
+  #hobbies {
+    background: linear-gradient(to right, #ebf8ff, #f7fafc);
+  }
+  
+  #hobbies .fa {
+    transition: transform 0.3s ease;
+  }
+  
+  #hobbies .fa:hover {
+    transform: scale(1.2);
+  }
+  
+  #hobbies .bg-white {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  #hobbies .bg-white:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
   
