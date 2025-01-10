@@ -7,7 +7,118 @@ import "./App.css";
 import img1 from "./jyoti.JPG";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import ChatBot from "react-simple-chatbot";
+import { ThemeProvider } from "styled-components";
+import { askOpenAI } from "./openaiHelper"; // OpenAI helper function
 
+// Chatbot Component
+const Chatbot = () => {
+  const [aiResponse, setAIResponse] = useState("");
+
+  const steps = [
+    {
+      id: "1",
+      message: "Hi! Welcome to my portfolio. How can I assist you today?",
+      trigger: "2",
+    },
+    {
+      id: "2",
+      options: [
+        { value: "projects", label: "Tell me about your projects", trigger: "projects" },
+        { value: "skills", label: "What skills do you have?", trigger: "skills" },
+        { value: "contact", label: "How can I contact you?", trigger: "contact" },
+        { value: "general", label: "I have a general question", trigger: "ask-question" },
+      ],
+    },
+    {
+      id: "projects",
+      message: "Here are some of my key projects:",
+      trigger: "dynamic-projects",
+    },
+    {
+      id: "dynamic-projects",
+      component: (
+        <div>
+          {projects.map((project, idx) => (
+            <p key={idx}>
+              <strong>{project.title}:</strong> {project.description}
+            </p>
+          ))}
+        </div>
+      ),
+      asMessage: true,
+      trigger: "6",
+    },
+    {
+      id: "skills",
+      component: (
+        <div>
+          {Object.keys(skills).map((category, idx) => (
+            <p key={idx}>
+              <strong>{category}:</strong> {skills[category].join(", ")}
+            </p>
+          ))}
+        </div>
+      ),
+      asMessage: true,
+      trigger: "6",
+    },
+    {
+      id: "contact",
+      message: "You can reach me at: jadhavjyotic1992@gmail.com",
+      trigger: "6",
+    },
+    {
+      id: "ask-question",
+      message: "Please type your question below.",
+      trigger: "user-question",
+    },
+    {
+      id: "user-question",
+      user: true,
+      validator: async (value) => {
+        try {
+          const response = await askOpenAI(value);
+          setAIResponse(response); // Store the response
+          return true;
+        } catch (error) {
+          console.error("Error fetching OpenAI response:", error);
+          setAIResponse("Sorry, there was an issue with the chatbot.");
+          return true;
+        }
+      },
+      trigger: "ai-response",
+    },
+    {
+      id: "ai-response",
+      message: () => aiResponse, // Use the dynamically updated state
+      trigger: "6",
+    },
+    {
+      id: "6",
+      message: "Is there anything else I can help you with?",
+      trigger: "2",
+    },
+  ];
+
+  const theme = {
+    background: "#f5f8fb",
+    fontFamily: "Arial, sans-serif",
+    headerBgColor: "#6c63ff",
+    headerFontColor: "#fff",
+    headerFontSize: "16px",
+    botBubbleColor: "#6c63ff",
+    botFontColor: "#fff",
+    userBubbleColor: "#fff",
+    userFontColor: "#4a4a4a",
+  };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <ChatBot steps={steps} floating={true} />
+    </ThemeProvider>
+  );
+};
 
 const App = () => {
   useEffect(() => {
@@ -167,66 +278,59 @@ const App = () => {
         </div>
       </section>
 
-
-
-<section id="experience" className="py-20 bg-gradient-to-r from-gray-100 to-gray-200">
-  <div className="max-w-7xl mx-auto px-6">
-    <h2 className="text-4xl font-bold text-gray-800 text-center mb-12" data-aos="fade-up">
-      My Journey
-    </h2>
-    <VerticalTimeline>
-      {experiences.map((exp, idx) => (
-        <VerticalTimelineElement
-          key={idx}
-          className="vertical-timeline-element--work"
-          contentStyle={{
-            background: "rgba(255, 255, 255, 0.9)",
-            color: "#333",
-            borderRadius: "15px",
-            boxShadow: "0 3px 10px rgba(0, 0, 0, 0.3)"
-          }}
-          contentArrowStyle={{
-            borderRight: "7px solid rgba(255, 255, 255, 0.9)"
-          }}
-          date={exp.duration}
-          iconStyle={{
-            background: "linear-gradient(135deg, #6a11cb, #2575fc)",
-            color: "#fff",
-            borderRadius: "50%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-          icon={<i className="fas fa-briefcase text-2xl"></i>}
-        >
-          <h3 className="vertical-timeline-element-title text-xl font-bold text-gray-800">{exp.title}</h3>
-          <h4 className="vertical-timeline-element-subtitle text-lg italic text-gray-600">{exp.company}</h4>
-          <p className="text-base mt-2 text-gray-700">{exp.description.join(", ")}</p>
-        </VerticalTimelineElement>
-      ))}
-    </VerticalTimeline>
-  </div>
-</section>
-
-
-
-
-
+      <section id="experience" className="py-20 bg-gradient-to-r from-gray-100 to-gray-200">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-gray-800 text-center mb-12" data-aos="fade-up">
+            My Journey
+          </h2>
+          <VerticalTimeline>
+            {experiences.map((exp, idx) => (
+              <VerticalTimelineElement
+                key={idx}
+                className="vertical-timeline-element--work"
+                contentStyle={{
+                  background: "rgba(255, 255, 255, 0.9)",
+                  color: "#333",
+                  borderRadius: "15px",
+                  boxShadow: "0 3px 10px rgba(0, 0, 0, 0.3)"
+                }}
+                contentArrowStyle={{
+                  borderRight: "7px solid rgba(255, 255, 255, 0.9)"
+                }}
+                date={exp.duration}
+                iconStyle={{
+                  background: "linear-gradient(135deg, #6a11cb, #2575fc)",
+                  color: "#fff",
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                icon={<i className="fas fa-briefcase text-2xl"></i>}
+              >
+                <h3 className="vertical-timeline-element-title text-xl font-bold text-gray-800">{exp.title}</h3>
+                <h4 className="vertical-timeline-element-subtitle text-lg italic text-gray-600">{exp.company}</h4>
+                <p className="text-base mt-2 text-gray-700">{exp.description.join(", ")}</p>
+              </VerticalTimelineElement>
+            ))}
+          </VerticalTimeline>
+        </div>
+      </section>
 
       {/* Projects Section */}
-      <section id="projects" class="py-16 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-6">
-          <h2 class="text-4xl font-bold text-gray-800 text-center mb-12">
+      <section id="projects" className="py-16 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
             Projects
           </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="relative w-full h-64 perspective group">
-              <div class="relative w-full h-full transform-style-preserve-3d transition-transform duration-500 group-hover:rotate-y-180">
-                <div class="absolute inset-0 bg-white shadow-lg rounded-lg p-6 backface-hidden">
-                  <h3 class="text-xl font-bold text-purple-600">Full stack development</h3>
-                  <p class="text-sm text-gray-500 mt-2">Crafting dynamic and responsive web applications.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="relative w-full h-64 perspective group">
+              <div className="relative w-full h-full transform-style-preserve-3d transition-transform duration-500 group-hover:rotate-y-180">
+                <div className="absolute inset-0 bg-white shadow-lg rounded-lg p-6 backface-hidden">
+                  <h3 className="text-xl font-bold text-purple-600">Full stack development</h3>
+                  <p className="text-sm text-gray-500 mt-2">Crafting dynamic and responsive web applications.</p>
                 </div>
-                <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-cyan-500 text-white shadow-lg rounded-lg p-6 rotate-y-180 backface-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-cyan-500 text-white shadow-lg rounded-lg p-6 rotate-y-180 backface-hidden">
                   <p>
                     As a Full Stack Developer, I excel in delivering comprehensive web solutions that bridge the gap between front-end and back-end functionalities. My expertise in C#, .NET Core, and React allows me to create engaging user experiences while ensuring robust server-side operations. I focus on implementing best practices in code quality, scalability, and performance. Whether it’s developing intricate dashboards for the pharmaceutical industry or integrating logistics solutions, my approach is always user-centric. I leverage Agile methodologies to adapt to changing requirements and ensure timely delivery of high-quality software that meets client expectations.
                   </p>
@@ -456,6 +560,7 @@ const App = () => {
           </div>
         </div>
       </section>
+      <Chatbot />
 
     </div>
   );
