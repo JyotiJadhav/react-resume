@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Parallax } from "react-parallax";
 import "aos/dist/aos.css";
 import AOS from "aos";
-import { skills, experiences, projects, honours, education, certifications, languages, casestudies , blogs, testimonials} from "./data";
+import { skills, experiences, projects, honours, education, certifications, languages, casestudies, blogs, testimonials } from "./data";
 import "./App.css";
 import img1 from "./jyoti.JPG";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
@@ -172,9 +172,66 @@ const App = () => {
           </div>
         </nav>
       </header>
-
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-purple-600 to-cyan-500 text-white text-center md:text-left py-40 px-6">
+{/* Hero Section */}
+{/* <section className="relative bg-gradient-to-r from-purple-600 to-blue-500 text-white py-20 px-6">
+  <div className="container mx-auto relative z-10 text-center">
+    <div className="flex justify-center items-center">
+      <div className="card-container max-w-md w-full transform perspective">
+        <div className="card relative w-full h-auto bg-white shadow-lg rounded-lg transform transition-transform duration-500 hover:rotate-y-180">
+          <div className="front absolute w-full h-full backface-hidden flex flex-col items-center text-center rounded-lg">
+            <div className="cover w-full h-40 overflow-hidden">
+              <img src="img/back.jpg" alt="Background" className="w-full h-full object-cover" />
+            </div>
+            <div className="user -mt-12">
+              <img src="img/jyoti.png" alt="Jyoti Jadhav" className="w-24 h-24 rounded-full border-4 border-white shadow-lg" />
+            </div>
+            <div className="content px-6 py-4">
+              <h3 className="name text-xl font-semibold text-gray-800">Jyoti Jadhav</h3>
+              <p className="profession text-md text-gray-500">Software Developer</p>
+              <p className="text-md text-gray-600 mt-2">
+                Experienced Software Developer with a demonstrated history of working in the computer software industry.
+              </p>
+            </div>
+          </div>
+          <div className="back absolute w-full h-full backface-hidden transform rotate-y-180 bg-gradient-to-r from-purple-700 to-blue-600 text-white flex flex-col justify-between rounded-lg">
+            <div className="header p-4 bg-blue-800 rounded-t-lg">
+              <h5 className="motto text-md italic">"Programmers never die, they are just cast into void"</h5>
+            </div>
+            <div className="content px-6 py-4 text-center">
+              <h4 className="text-lg font-semibold mb-2">About Me</h4>
+              <p className="text-md">
+                A versatile full-stack developer proficient in both front-end and back-end technologies, capable of delivering end-to-end solutions for a wide range of projects.
+              </p>
+              <div className="flex justify-between mt-4">
+                <div className="text-left">
+                  <h4 className="text-md font-bold">Email</h4>
+                  <p className="text-sm">jadhavjyotic1992@gmail.com</p>
+                </div>
+                <div className="text-left">
+                  <h4 className="text-md font-bold">Date of Birth</h4>
+                  <p className="text-sm">15<sup>th</sup> August</p>
+                </div>
+              </div>
+            </div>
+            <div className="footer flex justify-center space-x-4 py-4">
+              <a href="https://www.linkedin.com/in/jyoti-jadhav-a38479a3/" target="_blank" className="text-lg hover:text-gray-200">
+                <i className="fab fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/JyotiJadhav" target="_blank" className="text-lg hover:text-gray-200">
+                <i className="fab fa-github"></i>
+              </a>
+              <a href="https://www.cakeresume.com/jyoti-jadhav" target="_blank" className="text-lg hover:text-gray-200">
+                <i className="fa fa-link"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> */}
+{/* Hero Section */}
+<section className="relative bg-gradient-to-r from-purple-600 to-cyan-500 text-white text-center md:text-left py-40 px-6">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40"></div>
         <div className="relative z-10 flex flex-col md:flex-row-reverse items-center md:items-start max-w-7xl mx-auto">
           {/* Profile Image */}
@@ -234,6 +291,7 @@ const App = () => {
           style={{ animationDuration: "5s" }}
         ></div>
       </section>
+
 
       {/* Skills Section */}
       <section id="skills" className="py-16 bg-gradient-to-r from-gray-100 to-gray-200">
@@ -569,113 +627,113 @@ const App = () => {
         </div>
       </section>
       {/* Hobbies/Passions Section */}
-<section id="hobbies" className="py-16 bg-gradient-to-r from-blue-50 to-gray-100">
-  <div className="max-w-7xl mx-auto px-6">
-    <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
-      Hobbies & Passions
-    </h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {/* Hobby: Reading */}
-      <div className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
-        <i className="fas fa-book text-4xl text-blue-500 mb-4"></i>
-        <h3 className="text-xl font-bold text-gray-700">Reading</h3>
-        <p className="text-gray-500 mt-2 text-center">
-          Immersing myself in novels, articles, and anything that broadens my perspective.
-        </p>
-      </div>
-      {/* Hobby: Writing */}
-      <div className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
-        <i className="fas fa-pen-nib text-4xl text-green-500 mb-4"></i>
-        <h3 className="text-xl font-bold text-gray-700">Writing</h3>
-        <p className="text-gray-500 mt-2 text-center">
-          Crafting ideas and stories to express creativity and connect with others.
-        </p>
-      </div>
-      {/* Hobby: Painting */}
-      <div className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
-        <i className="fas fa-paint-brush text-4xl text-red-500 mb-4"></i>
-        <h3 className="text-xl font-bold text-gray-700">Painting</h3>
-        <p className="text-gray-500 mt-2 text-center">
-          Expressing my creativity through vibrant colors and imaginative artwork.
-        </p>
-      </div>
-      {/* Hobby: Learning New Technologies */}
-      <div className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
-        <i className="fas fa-laptop-code text-4xl text-purple-500 mb-4"></i>
-        <h3 className="text-xl font-bold text-gray-700">Learning New Technologies</h3>
-        <p className="text-gray-500 mt-2 text-center">
-          Staying updated with the latest innovations and trends in the tech world.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="case-studies" className="py-16 bg-gradient-to-r from-gray-100 to-gray-200">
-  <div className="max-w-7xl mx-auto px-6">
-    <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
-      Case Studies
-    </h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {casestudies.map((project, idx) => (
-        <div
-          key={idx}
-          className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col"
-        >
-          <h3 className="text-xl font-bold text-purple-600">{project.title}</h3>
-          <p className="text-gray-500 mt-2">{project.description}</p>
-          <a
-            href={project.caseStudyLink} // Link to detailed case study
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-auto text-cyan-500 hover:underline"
-          >
-            Read More
-          </a>
+      <section id="hobbies" className="py-16 bg-gradient-to-r from-blue-50 to-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
+            Hobbies & Passions
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Hobby: Reading */}
+            <div className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+              <i className="fas fa-book text-4xl text-blue-500 mb-4"></i>
+              <h3 className="text-xl font-bold text-gray-700">Reading</h3>
+              <p className="text-gray-500 mt-2 text-center">
+                Immersing myself in novels, articles, and anything that broadens my perspective.
+              </p>
+            </div>
+            {/* Hobby: Writing */}
+            <div className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+              <i className="fas fa-pen-nib text-4xl text-green-500 mb-4"></i>
+              <h3 className="text-xl font-bold text-gray-700">Writing</h3>
+              <p className="text-gray-500 mt-2 text-center">
+                Crafting ideas and stories to express creativity and connect with others.
+              </p>
+            </div>
+            {/* Hobby: Painting */}
+            <div className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+              <i className="fas fa-paint-brush text-4xl text-red-500 mb-4"></i>
+              <h3 className="text-xl font-bold text-gray-700">Painting</h3>
+              <p className="text-gray-500 mt-2 text-center">
+                Expressing my creativity through vibrant colors and imaginative artwork.
+              </p>
+            </div>
+            {/* Hobby: Learning New Technologies */}
+            <div className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+              <i className="fas fa-laptop-code text-4xl text-purple-500 mb-4"></i>
+              <h3 className="text-xl font-bold text-gray-700">Learning New Technologies</h3>
+              <p className="text-gray-500 mt-2 text-center">
+                Staying updated with the latest innovations and trends in the tech world.
+              </p>
+            </div>
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
+      <section id="case-studies" className="py-16 bg-gradient-to-r from-gray-100 to-gray-200">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
+            Case Studies
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {casestudies.map((project, idx) => (
+              <div
+                key={idx}
+                className="relative bg-white shadow-lg rounded-lg p-6 flex flex-col"
+              >
+                <h3 className="text-xl font-bold text-purple-600">{project.title}</h3>
+                <p className="text-gray-500 mt-2">{project.description}</p>
+                <a
+                  href={project.caseStudyLink} // Link to detailed case study
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto text-cyan-500 hover:underline"
+                >
+                  Read More
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-<section id="blog" className="py-16 bg-gradient-to-r from-blue-50 to-gray-100">
-  <div className="max-w-7xl mx-auto px-6">
-    <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
-      Blog
-    </h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {blogs.map((blog, idx) => (
-        <div key={idx} className="bg-white shadow-lg rounded-lg p-6">
-          <h3 className="text-xl font-bold text-gray-700">{blog.title}</h3>
-          <p className="text-gray-500 mt-2">{blog.summary}</p>
-          <a
-            href={blog.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-cyan-500 hover:underline mt-4 block"
-          >
-            Read More
-          </a>
+      <section id="blog" className="py-16 bg-gradient-to-r from-blue-50 to-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
+            Blog
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogs.map((blog, idx) => (
+              <div key={idx} className="bg-white shadow-lg rounded-lg p-6">
+                <h3 className="text-xl font-bold text-gray-700">{blog.title}</h3>
+                <p className="text-gray-500 mt-2">{blog.summary}</p>
+                <a
+                  href={blog.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-500 hover:underline mt-4 block"
+                >
+                  Read More
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-<section id="testimonials" className="py-16 bg-gradient-to-r from-gray-50 to-gray-100">
-  <div className="max-w-7xl mx-auto px-6">
-    <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
-      Testimonials
-    </h2>
-    <Slider dots={true} infinite={true} speed={500} slidesToShow={1} slidesToScroll={1}>
-      {testimonials.map((testimonial, idx) => (
-        <div key={idx} className="bg-white shadow-lg rounded-lg p-8 text-center">
-          <p className="text-lg italic text-gray-700">"{testimonial.message}"</p>
-          <h3 className="text-xl font-bold text-gray-800 mt-4">{testimonial.name}</h3>
-          <p className="text-sm text-gray-500">{testimonial.role}</p>
+      </section>
+      <section id="testimonials" className="py-16 bg-gradient-to-r from-gray-50 to-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
+            Testimonials
+          </h2>
+          <Slider dots={true} infinite={true} speed={500} slidesToShow={1} slidesToScroll={1}>
+            {testimonials.map((testimonial, idx) => (
+              <div key={idx} className="bg-white shadow-lg rounded-lg p-8 text-center">
+                <p className="text-lg italic text-gray-700">"{testimonial.message}"</p>
+                <h3 className="text-xl font-bold text-gray-800 mt-4">{testimonial.name}</h3>
+                <p className="text-sm text-gray-500">{testimonial.role}</p>
+              </div>
+            ))}
+          </Slider>
         </div>
-      ))}
-    </Slider>
-  </div>
-</section>
+      </section>
       <Chatbot />
 
     </div>

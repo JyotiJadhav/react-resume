@@ -154,4 +154,155 @@
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
-  
+ /* Hero Section Card Styles */
+.card-container {
+  perspective: 1000px;
+}
+
+.card {
+  width: 100%;
+  height: auto;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+}
+
+.card .front {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card .cover {
+  width: 100%;
+  height: 40%;
+  overflow: hidden;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.card .cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .user {
+  margin-top: -3rem;
+}
+
+.card .user img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  border: 0.25rem solid #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.card .content {
+  padding: 1.5rem;
+}
+
+.card .content .name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.card .content .profession {
+  font-size: 1rem;
+  color: #718096;
+}
+
+.card .content p {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-top: 0.5rem;
+}
+
+.card .back {
+  background: linear-gradient(to right, #6b46c1, #3182ce);
+  color: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card .back .header {
+  padding: 1rem;
+  background-color: #2b6cb0;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.card .back .header .motto {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.card .back .content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.card .back .content h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card .back .content p {
+  font-size: 1rem;
+}
+
+.card .back .content .flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.card .back .content .flex .text-left {
+  text-align: left;
+}
+
+.card .back .content .flex .text-left h4 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card .back .content .flex .text-left p {
+  font-size: 0.875rem;
+}
+
+.card .footer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.card .footer .social-links a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  color: #cbd5e0;
+  transition: color 0.3s ease-in-out;
+}
+
+.card .footer .social-links a:hover {
+  color: #63b3ed;
+}
