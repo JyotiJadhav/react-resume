@@ -1,0 +1,42 @@
+/* Flip card container with perspective */
+.flip-card-container {
+    perspective: 1000px;
+    width: 320px;
+    margin: auto;
+  }
+  
+  /* Card wrapper with 3D transform styles */
+  .flip-card {
+    width: 100%;
+    height: 400px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+    position: relative;
+  }
+  
+  /* Flip the card on hover */
+  .flip-card-container:hover .flip-card {
+    transform: rotateY(180deg);
+  }
+  
+  /* Front and back card faces */
+  .flip-card-front,
+  .flip-card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .flip-card-front {
+    background-color: #ffffff;
+    z-index: 2;
+  }
+  
+  .flip-card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(to right, #7e5bef, #5b76e5); /* Gradient background */
+  }
