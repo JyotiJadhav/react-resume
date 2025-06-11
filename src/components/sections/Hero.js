@@ -14,9 +14,6 @@ const Hero = () => {
                 <h1 className="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in">
                     Hello, I'm <span className="text-cyan-200">Jyoti Jadhav</span>
                 </h1>
-                <p className="text-lg md:text-2xl font-light mb-8 animate-fade-in animation-delay-500">
-                    A Software Developer with 8+ years of experience delivering innovative solutions.
-                </p>
                 <div className="animate-fade-in animation-delay-1000">
                     <FlipCard />
                 </div>

@@ -1,42 +1,141 @@
-/* Flip card container with perspective */
-.flip-card-container {
-    perspective: 1000px;
-    width: 320px;
-    margin: auto;
-  }
-  
-  /* Card wrapper with 3D transform styles */
+flip-card-container {
+  perspective: 1500px;
+  width: 90%;
+  margin: 3rem auto;
+}
+
+/* ================= FLIP CARD BASE ================= */
+.flip-card {
+  width: 100%;
+  min-height: 480px;
+  height: auto;
+  transform-style: preserve-3d;
+  transition: transform 0.9s ease-in-out;
+  position: relative;
+  border-radius: 16px;
+}
+
+.flip-card-container:hover .flip-card {
+  transform: rotateY(180deg);
+}
+
+/* ================= FRONT & BACK SIDES ================= */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+}
+
+.flip-card-front {
+  z-index: 2;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front img {
+  transition: transform 0.4s ease;
+}
+
+.flip-card-front img:hover {
+  transform: scale(1.08);
+}
+
+/* ================= BUTTON STYLING ================= */
+button {
+  background: linear-gradient(90deg, #8e2de2, #4a00e0);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #4a00e0, #8e2de2);
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
+}
+
+/* ================= SOCIAL ICONS ================= */
+a i {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+a:hover i {
+  transform: scale(1.2);
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 768px) {
   .flip-card {
-    width: 100%;
-    height: 400px;
-    transform-style: preserve-3d;
-    transition: transform 0.8s ease-in-out;
-    position: relative;
+    min-height: 520px;
   }
-  
-  /* Flip the card on hover */
-  .flip-card-container:hover .flip-card {
-    transform: rotateY(180deg);
-  }
-  
-  /* Front and back card faces */
+
   .flip-card-front,
   .flip-card-back {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    height: auto;
   }
-  
-  .flip-card-front {
-    background-color: #ffffff;
-    z-index: 2;
+
+  .flip-card-container:hover .flip-card {
+    transform: none;
   }
-  
-  .flip-card-back {
-    transform: rotateY(180deg);
-    background: linear-gradient(to right, #7e5bef, #5b76e5); /* Gradient background */
+
+  .strengths-header-card {
+    justify-content: center;
+    text-align: center;
   }
+}
+
+/* ================= STRENGTHS IN ACTION ================= */
+.strengths-section {
+  background-color: #f5f5f5;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(138, 43, 226, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.strengths-header-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #6b21a8;
+  margin-bottom: 1.5rem;
+}
+
+.strengths-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .strengths-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.strength-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.strength-item i {
+  font-size: 1.1rem;
+  color: #9333ea;
+  flex-shrink: 0;
+}

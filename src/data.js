@@ -50,25 +50,50 @@
 
 export const experiences = [
   {
-    company: "TechCorp Inc.",
-    title: "Senior Developer",
-    duration: "Jan 2020 - Present",
-    location: "New York, USA",
+    company: "AFour Technologies (An Alten Group Company)",
+    title: "Lead Software Development Engineer",
+    duration: "Sep 2021 - Present",
+    location: "Pune, India",
     description: [
-      "Led a team of developers",
-      "Implemented scalable web solutions",
-      "Collaborated with clients on technical designs"
+      "Worked as a Data Engineer/Analyst focusing on Power BI Paginated reports and AWS ETL services to build and optimize data pipelines and reporting solutions."
+
+   ],
+  },
+  {
+    company: "Centiro Solutions",
+    title: "Software Developer",
+    duration: "June 2019 - Aug 2021",
+    location: "Pune, India",
+    description: [
+      "Developed high-performance logistics products using a comprehensive tech stack including C#.NET MVC, Angular, React, MSSQL, MongoDB, and MSMQ.",
     ],
   },
   {
-    company: "CodeBase Solutions",
-    title: "Software Engineer",
-    duration: "June 2016 - Dec 2019",
-    location: "San Francisco, USA",
+    company: "Capgemini Technologies Services",
+    title: "Associate Consultant",
+    duration: "Dec 2017 - June 2019",
+    location: "Pune, India",
     description: [
-      "Developed innovative features",
-      "Optimized performance for key projects",
-      "Worked in Agile sprints"
+      "Developed robust and scalable data storage solutions for Macdonald's utilizing C#.NET, MSSQL, Web API, and MongoDB to meet the demands of high-volume businesses.",
+    ],
+  },
+  {
+    company: "Coditation Systems",
+    title: "Software Development Engineer",
+    duration: "Oct 2016 - Aug 2017",
+    location: "Pune, India",
+    description: [
+      "Designed and built user-friendly and visually appealing user interfaces (UI) for web applications in the healthcare and facility management domains.",
+    ],
+  },
+  {
+    company: "Gayatri Infotech Pvt Ltd",
+    title: "Senior Programmer",
+    duration: "Dec 2014 - Oct 2016",
+    location: "Pune, India",
+    description: [
+      "Led end-to-end development of enterprise banking apps and mentored interns, driving innovation and advancing to team leadership as Senior Programmer.",
+      "Developed a Core Banking System using WinForms, C#.NET, and MySQL, enhancing banking operations."
     ],
   },
 ];
@@ -152,8 +177,11 @@ export const testimonials = [
       "AWS CloudFormation",
       "Simple Notification Service (SNS)",
       "S3 Bucket",
+      "AWS Step Functions",
+      "Simple Queue Service (SQS)"
     ],
     "Project Management": ["Agile Methodology", "Kanban", "Scrum Framework", "Team Mentoring"],
+    "Data Srvices": ["Power BI Paginated", "AWS ETL Services"],
   };
 
   export const honours = [
